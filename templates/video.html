@@ -1,0 +1,38 @@
+{% load fenlei %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .combinediv a{
+            padding: 3px;
+        }
+        .combinediv .active{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="combinediv">
+        <div>
+            {% all current_url 1 %}
+            {% for i in DList %}
+                {% actionone current_url i.id i.name %}
+            {% endfor %}
+        </div>
+        <div>
+            {% all current_url 2 %}
+            {% for i in CList %}
+                {% actiontwo current_url i.id i.name %}
+            {% endfor %}
+        </div>
+        <div>
+            {% all current_url 3 %}
+            {% for i in VList %}
+                {% actionthree current_url i.0 i.1 %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
